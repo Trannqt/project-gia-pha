@@ -8801,11 +8801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\trannqt-lam-viec\\projectGiaPha\\src1\\QLGP\\QLGP\\QLGP.csproj",
+      "projectUniqueName": "D:\\trannqt-lam-viec\\projectGiaPha\\srcGit\\QLGP\\QLGP\\QLGP.csproj",
       "projectName": "QLGP",
-      "projectPath": "D:\\trannqt-lam-viec\\projectGiaPha\\src1\\QLGP\\QLGP\\QLGP.csproj",
+      "projectPath": "D:\\trannqt-lam-viec\\projectGiaPha\\srcGit\\QLGP\\QLGP\\QLGP.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\trannqt-lam-viec\\projectGiaPha\\src1\\QLGP\\QLGP\\obj\\",
+      "outputPath": "D:\\trannqt-lam-viec\\projectGiaPha\\srcGit\\QLGP\\QLGP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

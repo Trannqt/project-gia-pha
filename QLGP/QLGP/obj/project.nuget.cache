@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3D4iyyXunpBWHkMC8T7KarzF3TR4ILAOliHRNyIEWzADv+gZUD1xv0qUeCQi0lHw+3migBNEVRdrDG0R8F03vA==",
+  "dgSpecHash": "vOAqIGqpAz6EBVJO8VGUwEixJAr9VPJ+Oq8EBPdUjoXta5//NfSM6iR58I+aHzzMrAMTdlzVLVZ/ysD83b1yDQ==",
   "success": true,
-  "projectFilePath": "D:\\trannqt-lam-viec\\projectGiaPha\\src1\\QLGP\\QLGP\\QLGP.csproj",
+  "projectFilePath": "D:\\trannqt-lam-viec\\projectGiaPha\\srcGit\\QLGP\\QLGP\\QLGP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
