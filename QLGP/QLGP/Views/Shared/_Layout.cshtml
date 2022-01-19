@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="https://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css" />
 
 	<link rel="stylesheet" type="text/css" href="~/css/jquery.mhead.css" /><link rel="stylesheet" type="text/css" href="~/css/font.css" /><link rel="stylesheet" type="text/css" href="~/css/style.css" /><link href="~/css/default.css" rel="stylesheet" /><link href="~/css/nivo-slider.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/VNGP/VNGP.js"></script>
     <script type="text/javascript">
         $(function () {
 
@@ -190,9 +191,39 @@
             <li>
                 <a id="header1_HyperLink3" href="gioi-thieu.html">Đạo lý làm người</a>
             </li>
-            <li class="li-has-sub" id="headerTocHo">
-              
-            </li>
+            @{
+                    var TocHo = Context.Session.GetString("TocHo");
+                    string path = Context.Request.Path;
+                    path = path.Substring(1);
+                    string[] words = path.Split('/');
+                    var tocHoId = words[2];
+                    if (@TocHo != null)
+                {
+                    if (@TocHo.Length != 0)
+                    {
+                        <li class="li-has-sub">
+                            <a id="header1_HyperLink4" href="javascript:;" onclick="window.location.reload(true);">Tộc @TocHo</a>
+                            <ul class="sub-menu ul--no-style">
+                                <li>
+                                    <a id="header1_rpt_services_hyperlink3_0" href="javascript:;" onclick="window.location.reload(true);">Gia phả</a>
+                                </li>
+                                <li>
+                                    <a id="header1_rpt_services_hyperlink3_1" href="thiet-ke-noi-that-sid-2.html">Phả ký</a>
+                                </li>
+                                <li>
+                                    <a id="header1_rpt_services_hyperlink3_2" href="xuong-dong-do-noi-that-sid-3.html">Tộc ước</a>
+                                </li>
+                                <li>
+                                    <a id="header1_rpt_services_hyperlink3_3" href="/ThanhVien/ThanhVien/@tocHoId">Phả đồ</a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                }
+            }
+                
+            @*<li class="li-has-sub" id="headerTocHo">
+            </li>*@
             
                     @*<li class="li-has-sub">
                         <a id="header1_rpt_menu_HyperLink6_0" href="thiet-ke-kien-truc-mid-1.html">Thiết kế kiến trúc</a>
@@ -684,6 +715,7 @@
         });
     </script>
     <script type="text/javascript" src="~/js/jquery.twbsPagination.js"></script>
-    <script type="text/javascript" src="~/Scripts/VNGP/VNGP.js"></script>
+    <script type="text/javascript" src="~/js/OrgChartJS/orgchart.js"></script>
+
 </body>
 </html>

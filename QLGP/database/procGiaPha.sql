@@ -5,40 +5,6 @@ BEGIN
 END
 GO
 
-ALTER PROC vnsp_ThanhVien_getAdminById
-(
-	@Id INT
-)
-AS
-BEGIN
-	SELECT [Id]
-		  ,[HoTen]
-		  ,[DienThoai]
-		  ,[Email]
-		  ,CASE WHEN GioiTinh = 0 THEN N'Ông'
-                WHEN GioiTinh = 1 THEN N'Bà'
-			END AS GioiTinh 
-		  ,[DiaChi]
-		  ,[TocHoId]
-		  ,[ThanhVienId]
-		  ,[MoiQuanHeId]
-		  ,[LaConThu]
-		  ,[TenThuong]
-		  ,[TenTu]
-		  ,[NgaySinh]
-		  ,[ThuyHieu]
-		  ,[NgayMat]
-		  ,[NoiAnTang]
-		  ,[GhiChu]
-		  ,[LaDoiThu]
-		  ,[ImageThumbnail]
-		  ,[LapGiaDinh]
-		  ,[RightId]
-	  FROM [dbo].[ThanhVien]
-	  WHERE TocHoId = @Id AND RightId = 1
-END
-GO  
-
 ALTER PROC vnsp_ThanhVien_getChildrenById
 (
 	@Id INT
@@ -308,35 +274,3 @@ Ket_Thuc:
 	PRINT(@sql)
 END
 GO
-
-
-ALTER PROC vnsp_ThanhVien_getPhaDoById
-(
-	@Id INT
-)
-AS
-BEGIN
-	SELECT [Id] id
-      ,[HoTen] name
-      ,[DienThoai]
-      ,[Email]
-      ,[GioiTinh]
-      ,[DiaChi] title
-      ,[TocHoId]
-      ,[ThanhVienId] pid
-      ,[MoiQuanHeId]
-      ,[LaConThu]
-      ,[TenThuong]
-      ,[TenTu]
-      ,[NgaySinh]
-      ,[ThuyHieu]
-      ,[NgayMat]
-      ,[NoiAnTang]
-      ,[GhiChu]
-      ,[LaDoiThu]
-      ,[ImageThumbnail] img
-      ,[LapGiaDinh]
-      ,[RightId]
-  FROM [dbo].[ThanhVien]
-  WHERE TocHoId = @Id
-END

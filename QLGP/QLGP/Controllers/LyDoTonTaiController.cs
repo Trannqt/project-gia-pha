@@ -17,6 +17,7 @@ namespace QLGP.Controllers
         }
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("TocHo", "");
             return View();
         }
 

@@ -28,6 +28,13 @@ namespace QLGP.Controllers
         [HttpGet]
         public IActionResult Detail(int? id)
         {
+            TocHoInputAction commandAction = new TocHoInputAction();
+            if(id!=null)
+                commandAction.Id = id;
+            var res = commandAction.ExecuteQuery(conn);
+            HttpContext.Session.Remove("TocHo");
+            string tmp = res[0][0].Name.ToString();
+            HttpContext.Session.SetString("TocHo", tmp);
             return View();
         }
 
@@ -35,6 +42,7 @@ namespace QLGP.Controllers
         public IActionResult getTocHoDetailById(TocHoInputAction commandAction)
         {
             var res = commandAction.ExecuteQuery(conn);
+            
             return JsonExpando(res);
         }
 

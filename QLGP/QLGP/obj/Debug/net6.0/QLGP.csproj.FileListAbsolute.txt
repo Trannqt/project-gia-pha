@@ -985,3 +985,11 @@ D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\QLGP.dll
 D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\ref\QLGP.dll
 D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\QLGP.pdb
 D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\QLGP.genruntimeconfig.cache
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll

@@ -24,10 +24,16 @@ namespace QLGP.Controllers
             var res = commandAction.ExecuteQuery(conn);
             return JsonExpando(res);
         }
-        //public IActionResult init(LyDoTonTaiListAction commandAction)
-        //{
-        //    var res = commandAction.ExecuteQuery(conn);
-        //    return JsonExpando(res);
-        //}
+
+        public IActionResult ThanhVien()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult phaDo(PhaDoInputAction commandAction)
+        {
+            var res = commandAction.ExecuteQuery(conn);
+            return JsonExpando(res);
+        }
     }
 }

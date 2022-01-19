@@ -15,6 +15,13 @@ namespace QLGP
 
         private static void ConfigureServices(WebApplicationBuilder builder)
         {
+            //session
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);//You can set Time   
+            });
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -36,11 +43,9 @@ namespace QLGP
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
+            app.UseSession();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=LyDoTonTai}/{action=Index}/{id?}");

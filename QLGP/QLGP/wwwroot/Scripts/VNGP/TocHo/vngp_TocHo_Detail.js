@@ -31,27 +31,10 @@ var TocHo = {
                         var soDoi = result[2];
                         var lapGiaDinh = result[3];
                         var soLuongThanhVien = result[4];
+                        var Admin = result[5];
                         console.log(result);
                         debugger
-                        var html = `
-                            <a id="header1_HyperLink4" href="${url}">Tộc ${giaPha[0].Name}</a>
-                            <ul class="sub-menu ul--no-style">
-                                <li>
-                                    <a id="header1_rpt_services_hyperlink3_0" href="${url}">Gia phả</a>
-                                </li>
-                                <li>
-                                    <a id="header1_rpt_services_hyperlink3_1" href="thiet-ke-noi-that-sid-2.html">Phả ký</a>
-                                </li>
-                                <li>
-                                    <a id="header1_rpt_services_hyperlink3_2" href="xuong-dong-do-noi-that-sid-3.html">Tộc ước</a>
-                                </li>
-                                <li>
-                                    <a id="header1_rpt_services_hyperlink3_3" href="/ThanhVien/ThanhVien">Phả đồ</a>
-                                </li>
-                            </ul>
-                        `;
-                        $("#headerTocHo").html(html);
-                        
+                       
                         var htmlGiaPha = `
                             <div class="col-md-12">
                                 <h1 class="title title-2 cl-gold title-bor">
@@ -71,7 +54,7 @@ var TocHo = {
                             </div>
                         `;
                         $("#resultGiaPha").html(htmlGiaPha);
-                        debugger
+                        
                         var htmlNLG = "";
                         for (var i = 0; i < leGio.length; i++) {
                             htmlNLG += `
@@ -99,8 +82,24 @@ var TocHo = {
                             </tr>
                         `;
                         $("#resultTongQuan").html(htmlTongQuan);
+                        debugger
+                        var htmlAdmin = `
+                            <tr>
+                                <th scope="row">Người làm</th>
+                                <td>${Admin[0].GioiTinh} ${Admin[0].HoTen}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Địa chỉ</th>
+                                <td>${Admin[0].DiaChi}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Điện thoại</th>
+                                <td>${Admin[0].DienThoai}</td>
+                            </tr>
+                        `;
+                        $("#resultAdmin").html(htmlAdmin);
                     }
-                    else {
+                    else { 
                         $("#headerTocHo").html('');
                     }
                 }
