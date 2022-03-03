@@ -48,7 +48,7 @@ namespace QLGP
             app.UseSession();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=LyDoTonTai}/{action=Index}/{id?}");
+                pattern: "{controller=ReasonExists}/{action=Index}/{id?}");
         }
     }
 }

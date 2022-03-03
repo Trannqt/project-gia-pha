@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "BranchSource";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+<style>
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin:0;
+    overflow: hidden;
+    font-family: Helvetica;
+}
+
+#tree {
+    width: 100%;
+    max-height: 100%;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; 
+  animation: spin 2s linear infinite;
+  position: fixed;
+  top: calc(50% - 60px);
+  left: calc(50% - 60px);
+}
+
+</style>
+
+    <div class="container-fluid">
+        <div class="loader"></div>
+        <div style="width:100%; height:700px;" id="tree"/>
+    </div>
+*@
+
+<style>
+
+#tree{
+  width:100%;
+  height:700px;
+}
+
+.edit-photo {
+    background-color: green !important;
+}
+
+.edit-tags span {
+    background-color: green !important;
+}
+</style>
+
+
+  @*  <div class="container-fluid">*@
+        
+            <div id="tree"></div>
+        
+    @*</div>*@
+
+
+@*<script type="text/javascript" src="~/Scripts/VNGP/Person/template.js"></script>*@
+<script type="text/javascript" src="~/Scripts/VNGP/Person/vngp_Person_BranchSource.js"></script>

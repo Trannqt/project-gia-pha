@@ -13,7 +13,8 @@ namespace ConnectDb
             {
                 if (_connection == null)
                 {
-                    _connection = new System.Data.SqlClient.SqlConnection(@"Data Source=.; Initial Catalog = QLGP; Integrated Security = True;");
+                    //_connection = new System.Data.SqlClient.SqlConnection(@"workstation id=VietNamGiaPha.mssql.somee.com;packet size=4096;user id=trannqt_SQLLogin_1;pwd=9otaoqk6yk;data source=VietNamGiaPha.mssql.somee.com;persist security info=False;initial catalog=VietNamGiaPha");
+                    _connection = new System.Data.SqlClient.SqlConnection(@"Data Source=.; Initial Catalog = VNGP; Integrated Security = True;");
                     _connection.Open();
                 }
                 else if (_connection.State != ConnectionState.Open)
@@ -26,7 +27,7 @@ namespace ConnectDb
 
         public void SeedDatabase()
         {
-            
+
         }
     }
 }
