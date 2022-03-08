@@ -54,9 +54,10 @@ var Person = {
                     result[0].forEach(function (ele, inx) {
                         debugger
                         ele.img = `/upload/branchsource/${ele.img}`;
-                       // console.log(ele.pid);
-                        console.log(ele.tags);
-                        ele.tags == "1"?["partner"]:"";
+                        console.log(ele.pid);
+                        
+                        ele.tags == "partner" ? ["partner"] : "";
+                        console.log("partner" +ele.tags);
                     });
                     chart.load(result[0]);
                 }

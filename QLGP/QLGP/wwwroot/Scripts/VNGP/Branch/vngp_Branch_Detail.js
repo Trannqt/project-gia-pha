@@ -5,7 +5,7 @@
 
 var Branch = {
     params: {
-
+        pDataSLinks: [],
     },
     func: {
         createControl: function () {
@@ -56,29 +56,48 @@ var Branch = {
                          */
                         $("#resultGiaPha").html(htmlGiaPha);
                         var length = branchDetail.length;
-                        var htmlBranchDetail = "";
-   
+                        var htmlBranchDetail = "",number=1;
+                        branchDetail.forEach(function (ele, inx) {
+                            ele.STT = number++;
+                        });
+
                         for (var i = 0; i < length; i++) {
-                            var strMotherName = "", strPartner = "";
-                            if (branchDetail[i].MotherName != "")
-                                strMotherName = " - (" + branchDetail[i].MotherName + ")";
-                         
-                            if (branchDetail[i].Partner != "")
-                                strPartner = " - (" + "<a href=\"javascript:;\" onclick=\"Person.func.createChart(" + branchDetail[i].PartnerBranchId + "," + branchDetail[i].PartnerPersonId + "," + branchDetail[i].PartnerLevel + "," + branchDetail[i].PartnerMaxLevel + ")\">" + branchDetail[i].Partner + ")";
-                            
+                            var strName = "", strPartner = "", strFatherAndMother = "";
+                            console.log(branchDetail[i].PartnerName);
+
+                            if (branchDetail[i].PartnerName != "" && branchDetail[i].PartnerName != null)
+                                strPartner = " - (" + "<a href=\"javascript:;\" onclick=\"Person.func.createChart(" + branchDetail[i].PartnerBranchId + "," + branchDetail[i].PartnerPersonId + "," + branchDetail[i].PartnerLevel + "," + branchDetail[i].PartnerMaxLevel + ")\">" + branchDetail[i].PartnerName + "</a>)";
+
+                            if (branchDetail[i].RootBranchId == id) {
+                                if (branchDetail[i].MotherName != "")
+                                    strName = " - (" + branchDetail[i].MotherName + ")";
+                                strFatherAndMother = branchDetail[i].FatherName + strName;
+                            }
+                            else {
+                                if (branchDetail[i].FatherName != "")
+                                    strName = " - (" + branchDetail[i].FatherName + ")";
+                                strFatherAndMother = branchDetail[i].MotherName + strName;
+                            }
+
                             htmlBranchDetail += `
                                 <tr>
                                     <td>${branchDetail[i].STT}</td>
-                                    <td>${branchDetail[i].Level}</td>
-                                    <td><a href="javascript:;" onclick="Person.func.createChart(${branchDetail[i].RootBranchId},${branchDetail[i].RootPersonId},${branchDetail[i].Level},${branchDetail[length - 1].maxLevel})">${branchDetail[i].Name}</a> ${strPartner}</td>
-                                    <td>${branchDetail[i].FatherName} ${strMotherName}</td>
-                                    <td>${branchDetail[i].Sex}</td>
-                                    <td>${branchDetail[i].DateOfBirth}</td>
-                                    <td>${branchDetail[i].Phone}</td>
-                                    <td>${branchDetail[i].Address}</td>
-                                    <td>${branchDetail[i].Death}</td>
+                                    <td>${branchDetail[i].RootPersonId}</td>
+                                    <td>
+<a href="javascript:;" onclick="Person.func.createChart(${branchDetail[i].RootBranchId},${branchDetail[i].RootPersonId},${branchDetail[i].Level},${branchDetail[length - 1].maxLevel})">${branchDetail[i].Name}
+</a>
+${strPartner}
+<br/>
+${branchDetail[i].Sex}, Đời ${branchDetail[i].Level}
+                                    </td>
                                 </tr>
                             `;
+                            //<td>${strFatherAndMother}</td>
+                            //<td>${branchDetail[i].Sex}</td>
+                            //<td>${branchDetail[i].DateOfBirth}</td>
+                            //<td>${branchDetail[i].Phone}</td>
+                            //<td>${branchDetail[i].Address}</td>
+                            //<td>${branchDetail[i].Death}</td>
                         }
                         $("#tblBranchDetail").html(htmlBranchDetail);
                     }
@@ -122,12 +141,13 @@ var Person = {
                 template: "myTemplate",
                 nodeBinding: {
                     field_0: "name",
-                    field_1: "title",
-                    field_2: "email",
-                    field_3: "country",
+                    field_1: "Level",
+                    field_2: "SexAndPhone",
+                    //field_3: "Phone",
+                    field_3: "BranchName",
                     img_0: "img",
                 },
-
+                
             });
             Person.func.createControl(chart, branchId, personId,level, maxlevel);
         },
@@ -152,12 +172,25 @@ var Person = {
                     result[0].forEach(function (ele, inx) {
                         debugger
                         ele.img = `/upload/branchsource/${ele.img}`;
-                        //ele.pid = 1;
-                        // console.log(ele.pid);
-                        //console.log(ele.tags);
-                        //ele.tags == "1" ? ["partner"] : "";
+                        ele.BranchName = "Tộc: "+ele.BranchName;
+                        ele.Level = "Đời "+ele.Level;
+                        ele.SexAndPhone = "Giới tính: " + ele.Sex + " - " + ele.Phone;
+
+                        if (ele.tags == "partner") {
+                            var slink = {
+                                from: ele.pid,
+                                to: ele.id,
+                                label: ele.Sex=='Nữ'? "Vợ":"Chồng",
+                            }
+                            chart.addSlink(slink.from, slink.to, slink.label);
+                            //Branch.params.pDataSLinks.concat(slink);
+                        }
+                        ele.tags = ele.tags == "partner" ? ['partner'] : "";
+                        //console.log("partner" + ele.tags);
                     });
+                    console.log(result[0]);
                     chart.load(result[0]);
+                    
                 }
             });
         },

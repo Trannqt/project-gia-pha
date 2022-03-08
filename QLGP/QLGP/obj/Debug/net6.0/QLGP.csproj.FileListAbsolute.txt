@@ -244,3 +244,4 @@ D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\QLGP.dll
 D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\ref\QLGP.dll
 D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\QLGP.pdb
 D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\QLGP.genruntimeconfig.cache
+D:\trannqt-lam-viec\projectGiaPha\srcGit\QLGP\QLGP\obj\Debug\net6.0\QLGP.csproj.AssemblyReference.cache
