@@ -53,6 +53,7 @@
     <Compile Include="RootBranchMgt\RootBranchImageListRepository.cs" />
     <Compile Include="RootBranchMgt\RootBranchSearchAndGetTotalPagesRepository.cs" />
     <Compile Include="RootBranchMgt\RootBranchSearchRepository.cs" />
+    <Compile Include="RootBranchMgt\RootBranchViewGetInfoRepository.cs" />
     <Compile Include="RootBranchMgt\RootBranchViewProfilePhaKyRepository.cs" />
     <Compile Include="RootBranchMgt\RootBranchViewProfileThuyToRepository.cs" />
     <Compile Include="RootBranchMgt\RootBranchViewProfileTocUocRepository.cs" />
@@ -70,6 +71,7 @@
     <Content Include="RootBranchMgt\Procedures\vnsp_RootBranch_RootBranchGetBranchById.sql" />
     <Content Include="RootBranchMgt\Procedures\vnsp_RootBranch_RootBranchGetById.sql" />
     <Content Include="RootBranchMgt\Procedures\vnsp_RootBranch_RootBranchSearch.sql" />
+    <Content Include="RootBranchMgt\Procedures\vnsp_RootBranch_RootBranchViewGetInfo.sql" />
     <Content Include="RootBranchMgt\Procedures\vnsp_RootBranch_RootBranchViewProfilePhaKy.sql" />
     <Content Include="RootBranchMgt\Procedures\vnsp_RootBranch_RootBranchViewProfileThuyTo.sql" />
     <Content Include="RootPersonMgt\Procedures\vnsp_RootPerson_RootPersonSearchByBranchId.sql" />

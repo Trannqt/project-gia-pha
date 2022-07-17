@@ -55,5 +55,10 @@ namespace VietNamGiaPha.Controllers
         {
             return JsonExpando(CommandAction.Execute());
         }
+
+        public ActionResult RootBranchViewGetInfo(RootBranchViewGetInfo CommandAction)
+        {
+            return JsonExpando(CommandAction.Execute());
+        }
     }
 }

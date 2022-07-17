@@ -1,21 +1,25 @@
 ﻿const _PAGESIZE = 10;
 const _PAGESKIP = 0;
 const _VISIBLEPAGES = 2;
+let BranchId = 0;
+let BranchName = "";
 $(document).ready(function () {
     debugger
     var url = window.location.href;
     var tmp = url.split('/');
-    var id = Number(tmp[tmp.length - 1]);
+    BranchId = Number(tmp[tmp.length - 1]);
+
+    RootBranchGetInfoById(BranchId, renderHeaderHTML);
 
     var paramsFirstLoadPersonTreeList = {
         pageSize: -1,
         pageSkip: -1,
-        Id: id,
+        Id: BranchId,
     };
     var paramsLoadPersonTreeList = {
         pageSize: _PAGESIZE,
         pageSkip: _PAGESKIP,
-        Id: id,
+        Id: BranchId,
     };
     var urlRequest = '/RootPerson/RootPersonTreeList';
     var commandActionFirstLoadPersonTreeList = {
@@ -101,6 +105,43 @@ function renderRootPostListHTML(result) {
         }
         $("#tblBranchDetail").html(html);
     }
+}
+
+function renderHeaderHTML(result) {
+    var add = "";
+    if (result[0].Address != '') add += result[0].Address + ",";
+    if (result[0].DistrictName != '') add += result[0].DistrictName + ",";
+    if (result[0].ProvinceName != '') add += result[0].ProvinceName;
+
+    BranchName = result[0].Name;
+    BranchId = result[0].RootBranchId;
+    var htmlGiaPha = `
+        <div class="col-md-12">
+            <h1 class="title title-2 cl-gold title-bor">
+                <p style="font-size:65%;">Gia Phả</p>
+                <span class="title-heading">
+                    Tộc ${result[0].Name} - ${add}
+                </span>
+                <span class="bot-title">
+                </span>
+            </h1>
+        </div> 
+    `;
+    $("#resultGiaPha").html(htmlGiaPha);
+}
+
+function RootBranchGetInfoById(branchId, callback) {
+    var CommanAction = {
+        Id: branchId,
+    };
+    $.ajax({
+        url: "/RootBranch/RootBranchViewGetInfo",
+        type: "GET",
+        data: CommanAction,
+        success: function (result) {
+            if (callback) callback(result);
+        }
+    });
 }
 
 var Person = {
@@ -559,7 +600,7 @@ var Person = {
                         else tmpImage = 'man.png';
 
                         ele.img = `/assets/upload/branchsource/${tmpImage}`;
-                        ele.BranchName = ele.RootBranchId == BrD.params.RootBranchId ? `Tộc: ${BrD.params.RootBranchName}` : "";
+                        ele.BranchName = ele.RootBranchId == BranchId ? `Tộc: ${BranchName}` : "";
 
                         ele.SexAndPhone = ele.Sex + " - " + ele.Phone;
 

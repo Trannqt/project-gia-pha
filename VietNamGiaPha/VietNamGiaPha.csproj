@@ -135,6 +135,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ReasonExists\ReasonExistsListAction.cs" />
+    <Compile Include="Models\RootBranch\RootBranchViewGetInfo.cs" />
     <Compile Include="Models\RootBranch\RootBranchImageListAction.cs" />
     <Compile Include="Models\RootBranch\RootBranchListAction.cs" />
     <Compile Include="Models\Location\LocationListAction.cs" />
